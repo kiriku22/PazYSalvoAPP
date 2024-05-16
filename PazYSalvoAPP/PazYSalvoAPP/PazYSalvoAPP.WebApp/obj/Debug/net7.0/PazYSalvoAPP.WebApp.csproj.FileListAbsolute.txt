@@ -80,3 +80,6 @@ C:\Users\Usuario\Documents\Proyectos\Articles\Proyectos\PazYSalvo\PazYSalvoAPP\P
 C:\Users\Usuario\Documents\Proyectos\Articles\Proyectos\PazYSalvo\PazYSalvoAPP\PazYSalvoAPP.WebApp\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Usuario\Documents\Proyectos\Articles\Proyectos\PazYSalvo\PazYSalvoAPP\PazYSalvoAPP.WebApp\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Usuario\Documents\Proyectos\Articles\Proyectos\PazYSalvo\PazYSalvoAPP\PazYSalvoAPP.WebApp\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.WebApp\obj\Debug\net7.0\PazYSalvoAPP.WebApp.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.WebApp\obj\Debug\net7.0\refint\PazYSalvoAPP.WebApp.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.WebApp\obj\Debug\net7.0\PazYSalvoAPP.WebApp.pdb

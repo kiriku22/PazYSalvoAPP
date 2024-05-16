@@ -73,7 +73,7 @@
 
                 console.error("error adding invoice:", textstatus, errorthrown);
 
-                alert("error!);
+                alert("error!");
                         $("#modal").modal("hide");
             },
         });

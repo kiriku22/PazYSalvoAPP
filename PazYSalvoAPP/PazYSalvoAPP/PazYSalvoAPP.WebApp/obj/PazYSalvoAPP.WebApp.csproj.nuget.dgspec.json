@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj": {}
+    "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj": {
+    "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj",
+        "projectUniqueName": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj",
         "projectName": "PazYSalvoAPP.Business",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\obj\\",
+        "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj",
+        "packagesPath": "C:\\Users\\john\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\john\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,18 +22,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj"
+              "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj": {
+                "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj"
               },
-              "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
+              "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
+                "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
               }
             }
           }
@@ -46,6 +41,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -67,25 +67,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj": {
+    "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj",
+        "projectUniqueName": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj",
         "projectName": "PazYSalvoAPP.Data",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Data\\obj\\",
+        "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\PazYSalvoAPP.Data.csproj",
+        "packagesPath": "C:\\Users\\john\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\john\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,15 +89,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
+              "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
+                "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
               }
             }
           }
@@ -110,6 +105,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -147,25 +147,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
+    "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj",
+        "projectUniqueName": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj",
         "projectName": "PazYSalvoAPP.Models",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\obj\\",
+        "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj",
+        "packagesPath": "C:\\Users\\john\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\john\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -173,7 +169,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -186,6 +181,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -207,25 +207,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj": {
+    "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj",
         "projectName": "PazYSalvoAPP.WebApp",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\obj\\",
+        "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\PazYSalvoAPP.WebApp.csproj",
+        "packagesPath": "C:\\Users\\john\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.WebApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\john\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -233,18 +229,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj"
+              "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj": {
+                "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Business\\PazYSalvoAPP.Business.csproj"
               },
-              "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\Documents\\Proyectos\\Articles\\Proyectos\\PazYSalvo\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
+              "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj": {
+                "projectPath": "C:\\Users\\john\\Desktop\\PazYSalvoAPP-john\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP\\PazYSalvoAPP.Models\\PazYSalvoAPP.Models.csproj"
               }
             }
           }
@@ -253,6 +248,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -277,7 +277,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
