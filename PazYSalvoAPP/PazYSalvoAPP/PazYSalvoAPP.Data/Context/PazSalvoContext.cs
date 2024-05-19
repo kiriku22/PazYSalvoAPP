@@ -142,9 +142,7 @@ public partial class PazSalvoContext : DbContext
                 .HasDefaultValueSql("((0))")
                 .HasColumnType("decimal(10, 2)");
 
-            entity.HasOne(d => d.Factura).WithMany(p => p.Pagos)
-                .HasForeignKey(d => d.FacturaId)
-                .HasConstraintName("FK__Pagos__FacturaId__693CA210");
+            
         });
 
         modelBuilder.Entity<Persona>(entity =>

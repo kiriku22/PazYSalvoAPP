@@ -66,8 +66,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Pago/_ListadoDePago.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xfTGlzdGFkb0RlUGFnby5jc2h0bWw=
+[C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Pago/_ListadoDePagos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnb1xfTGlzdGFkb0RlUGFnb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Persona/Index.cshtml]
@@ -76,6 +76,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Persona/_ListadoDePersona.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYVxfTGlzdGFkb0RlUGVyc29uYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Role/_ListadoDeRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxfTGlzdGFkb0RlUm9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/john/Desktop/PazYSalvoAPP-john/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP/PazYSalvoAPP.WebApp/Views/Servicio/EditarServicio.cshtml]

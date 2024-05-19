@@ -6,17 +6,17 @@
 }
 
 <div class="container">
-    <h2>Administrador de Personas</h2>
+    <h2>Administrador de Roles</h2>
     <p class="descripcion">
-        Este administrador nos permite visualizar y gestionar todo lo referente a estados de las facturas del negocio.
+        Este administrador nos permite visualizar y gestionar todo lo referentea roles del negocio.
     </p>
 
     <div class="opciones-container">
-        <a class="btn btn-primary btn-sm" id="btnVerPersonas">Ver Personas</a>
-        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoPersona">Nueva Persona</a>
+        <a class="btn btn-primary btn-sm" id="btnVerRoles">Ver Roles</a>
+        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoRole">Nuevo Role</a>
     </div>
 
-    <div id="tblListaDePersonas">
+    <div id="tblListaDeRoles">
     </div>
 </div>
 
@@ -29,7 +29,7 @@
                     <h5 class="modal-title" id="tituloModal"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="frmModalEstado">
+                <form method="post" id="frmModalRole">
                     <div class="modal-body">
 
                         <div class="form-group">
@@ -38,28 +38,27 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="PersonaValor">Nombre</label>
-                            <input type="text" class="form-control" id="PersonaValor">
+                            <label for="RoleValor">Nombre</label>
+                            <input type="text" class="form-control" id="RoleValor">
+                        </div>
+    
+                
+                
+                        <div class="form-group">
+                            <label for="RoleValor">Descripción</label>
+                            <input type="text" class="form-control" id="RoleValor">
+                        </div>
+                        <div class="form-group">
+                            <label for="RoleValor">Activo</label>
+                            <input type="text" class="form-control" id="RoleValor">
                         </div>
 
-                        <div class="form-group">
-                            <label for="PersonaValor">Telefono</label>
-                            <input type="text" class="form-control" id="PersonaValor">
-                        </div>
-                    <div class="form-group">
-                            <label for="PersonaValor">CorreoElectronico</label>
-                            <input type="text" class="form-control" id="PersonaValor">
-                        </div>
-                        <div class="form-group">
-                            <label for="PersonaValor">DocumentoIdentificacion</label>
-                            <input type="text" class="form-control" id="PersonaValor">
-                        </div>
                         
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="btnActualizarPersona">Agregar</button>
+                        <button type="submit" class="btn btn-primary" id="btnActualizarRole">Agregar</button>
                     </div>
                 </form>
             </div>
@@ -75,22 +74,22 @@
         $(document).ready(function () {
             
             // btnVerEstados
-            $("#btnVerPersona").click(async function () {
-                const url = "@Url.Action("ListarPersonas", "Persona")";
+            $("#btnVerRoles").click(async function () {
+                const url = "@Url.Action("ListarRoles", "Role")";
                 const response = await $.ajax({
                     url: url,
                     method: "GET",
                     dataType: "html"
                 });
 
-                $("#tblListaDeEstados").html(response);
-                $("#btnVerPersonas").hide();
-                $("#btnNuevoPersona").removeClass("visually-hidden"); // visually-hidden
+                $("#tblListaDeRoles").html(response);
+                $("#btnVerRoles").hide();
+                $("#btnNuevoRole").removeClass("visually-hidden"); // visually-hidden
 
             });
 
             // mostrar modal nuevo estado
-            $("#btnNuevoPersona").click(function () {
+            $("#btnNuevoRole").click(function () {
                 mostrarModal();
 
 
@@ -101,10 +100,10 @@
         function mostrarModal() {
 
             // Actualiza el título de la modal
-            $("#tituloModal").text("Persona");
+            $("#tituloModal").text("Role");
 
             // Limpia los campos del formulario
-            $("#frmModalPersona").trigger("reset");
+            $("#frmModalRole").trigger("reset");
 
             // Muestra la modal
             $("#modal").modal("show");

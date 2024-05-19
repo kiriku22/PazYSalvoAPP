@@ -9,8 +9,6 @@ public partial class Pago
 
     public decimal? MontoDePago { get; set; }
 
-    public int? FacturaId { get; set; }
-
     public bool? Activo { get; set; }
 
     public DateTime? FechaDeCreacion { get; set; }

@@ -28,7 +28,6 @@ namespace PazYSalvoAPP.WebApp.Controllers.Pagos
 
                 Id = e.Id,
                 MontoDePago = e. MontoDePago,
-                FacturaId  = e.FacturaId  ,
                 Activo =e.Activo,
                 FechaDeCreacion =e.FechaDeCreacion,
 

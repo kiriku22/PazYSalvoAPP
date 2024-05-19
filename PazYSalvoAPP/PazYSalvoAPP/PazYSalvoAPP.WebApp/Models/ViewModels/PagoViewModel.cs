@@ -9,7 +9,6 @@ namespace PazYSalvoAPP.WebApp.Models.ViewModels
 
         public decimal? MontoDePago { get; set; }
 
-        public int? FacturaId { get; set; }
 
         public bool? Activo { get; set; }
 
