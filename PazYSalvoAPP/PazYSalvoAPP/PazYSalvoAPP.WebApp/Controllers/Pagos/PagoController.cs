@@ -3,14 +3,14 @@ using PazYSalvoAPP.Business.Services;
 using PazYSalvoAPP.Models;
 using PazYSalvoAPP.WebApp.Models.ViewModels;
 
-namespace PazYSalvoAPP.WebApp.Controllers.Clientes
+namespace PazYSalvoAPP.WebApp.Controllers.Pagos
 {
-    public class ClienteController : Controller
+    public class PagoController : Controller
     {
-        private readonly IClienteService _clienteService;
-        public ClienteController(IClienteService clienteService)
+        private readonly IPagoService _pagoService;
+        public PagoController(IPagoService pagoService)
         {
-            _clienteService = clienteService;
+            _pagoService = pagoService;
         }
         public IActionResult Index()
         {
@@ -18,20 +18,24 @@ namespace PazYSalvoAPP.WebApp.Controllers.Clientes
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListarClientes()
+        public async Task<IActionResult> ListarPagos()
         {
-            IQueryable<Estado>? consultaDeClientes = await _clienteService.LeerTodos();
+            IQueryable<Estado>? consultaDePagos = await _pagoService.LeerTodos();
 
-            List<EstadoViewModel> listadoDeClientes = consultaDeClientes.Select(e => new ClienteViewModel
+            List<PagoViewModel> listadoDePagos = consultaDePagos.Select(e => new PagoViewModel
             {
+
+
                 Id = e.Id,
-                Nombre = e.Nombre,
-                RolId = e.RolId,
+                MontoDePago = e. MontoDePago,
+                FacturaId  = e.FacturaId  ,
+                Activo =e.Activo,
+                FechaDeCreacion =e.FechaDeCreacion,
 
             }).ToList();
 
-            return PartialView("_ListadoDeCliente",
-                              listadoDeClientes);
+            return PartialView("_ListadoDePagos",
+                              listadoDePagos);
         }
         //[HttpPost] // *
         //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)

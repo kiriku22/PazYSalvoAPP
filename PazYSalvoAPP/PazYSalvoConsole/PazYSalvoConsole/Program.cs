@@ -21,20 +21,20 @@ public class Estado
 public class PazYSalvoContext : DbContext
 {
     // NOMBRE DE NUESTRA BD: 
-    public string dataBase = "dbPazYSalvo.db";
+    public string dataBase = "PazYSalvoAPP.db";
     DbSet<Estado> Estado { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.UseSqlServer(connectionString: "Server=DESKTOP-9GLEDTL;Database=PazYSalvoAPP;User Id=john;", sqlServerOptionsAction: op => 
     {
-        optionsBuilder.UseSqlite(connectionString: "Filename=" + dataBase, sqliteOptionsAction: op => 
-        {
-            op.MigrationsAssembly(
-                    Assembly.GetExecutingAssembly().FullName
-                );
-        });
+        op.MigrationsAssembly(
+            Assembly.GetExecutingAssembly().FullName
+        );
+    });
 
-        base.OnConfiguring(optionsBuilder);
-    }
+    base.OnConfiguring(optionsBuilder);
+}
 
     // DISEÑO DE ENTIDADES
     protected override void OnModelCreating(ModelBuilder modelBuilder)

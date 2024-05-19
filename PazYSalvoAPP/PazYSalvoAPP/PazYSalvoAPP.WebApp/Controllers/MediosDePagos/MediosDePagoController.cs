@@ -3,14 +3,14 @@ using PazYSalvoAPP.Business.Services;
 using PazYSalvoAPP.Models;
 using PazYSalvoAPP.WebApp.Models.ViewModels;
 
-namespace PazYSalvoAPP.WebApp.Controllers.Clientes
+namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
 {
-    public class ClienteController : Controller
+    public class MediosDePagoController : Controller
     {
-        private readonly IClienteService _clienteService;
-        public ClienteController(IClienteService clienteService)
+        private readonly IMediosDePagoService _mediosdepagoService;
+        public MediosDePagoController(IMediosDePagoService mediosdepagoService)
         {
-            _clienteService = clienteService;
+            _mediosdepagoService = mediosdepagoService;
         }
         public IActionResult Index()
         {
@@ -18,20 +18,22 @@ namespace PazYSalvoAPP.WebApp.Controllers.Clientes
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListarClientes()
+        public async Task<IActionResult> ListarMediosDePagos()
         {
-            IQueryable<Estado>? consultaDeClientes = await _clienteService.LeerTodos();
+            IQueryable<Estado>? consultaDeMediosDePagos = await _mediosdepagoService.LeerTodos();
 
-            List<EstadoViewModel> listadoDeClientes = consultaDeClientes.Select(e => new ClienteViewModel
+            List<MediosDePagoViewModel> listadoDeMediosDePagos = consultaDeMediosDePagos.Select(e => new MediosDePagoViewModel
             {
+
                 Id = e.Id,
                 Nombre = e.Nombre,
-                RolId = e.RolId,
+                Descripcion  = e.Descripcion ,
+                FechaDeCreacion =e.FechaDeCreacion,
 
             }).ToList();
 
-            return PartialView("_ListadoDeCliente",
-                              listadoDeClientes);
+            return PartialView("_ListadoDeMediosDePagos",
+                              listadoDeMediosDePagos);
         }
         //[HttpPost] // *
         //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)

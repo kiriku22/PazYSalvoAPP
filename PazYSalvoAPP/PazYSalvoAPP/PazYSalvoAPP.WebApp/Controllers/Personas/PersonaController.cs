@@ -3,14 +3,14 @@ using PazYSalvoAPP.Business.Services;
 using PazYSalvoAPP.Models;
 using PazYSalvoAPP.WebApp.Models.ViewModels;
 
-namespace PazYSalvoAPP.WebApp.Controllers.Clientes
+namespace PazYSalvoAPP.WebApp.Controllers.Personas
 {
-    public class ClienteController : Controller
+    public class PersonaController : Controller
     {
-        private readonly IClienteService _clienteService;
-        public ClienteController(IClienteService clienteService)
+        private readonly IPersonaService _pagoService;
+        public PersonaController(IPersonaService personaService)
         {
-            _clienteService = clienteService;
+            _personaService = personaService;
         }
         public IActionResult Index()
         {
@@ -18,20 +18,25 @@ namespace PazYSalvoAPP.WebApp.Controllers.Clientes
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListarClientes()
+        public async Task<IActionResult> ListarPersonas()
         {
-            IQueryable<Estado>? consultaDeClientes = await _clienteService.LeerTodos();
+            IQueryable<Estado>? consultaDePersonas = await _personaService.LeerTodos();
 
-            List<EstadoViewModel> listadoDeClientes = consultaDeClientes.Select(e => new ClienteViewModel
+            List<PagoViewModel> listadoDePersonas = consultaDePersonas.Select(e => new PersonaViewModel
             {
+
                 Id = e.Id,
-                Nombre = e.Nombre,
-                RolId = e.RolId,
+                Nombres = e.Nombres,
+                Telefono  = e.Telefono,
+                CorreoElectronico =e.CorreoElectronico,
+                DocumentoIdentificacion =e.DocumentoIdentificacion,
+                FechaDeCreacion =e.FechaDeCreacion,
+                
 
             }).ToList();
 
-            return PartialView("_ListadoDeCliente",
-                              listadoDeClientes);
+            return PartialView("_ListadoDePersonas",
+                              listadoDePersonas);
         }
         //[HttpPost] // *
         //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)
