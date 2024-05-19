@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PazYSalvoAPP.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a63e8870764d9b800d8d78f519f6dc3e998b7ea2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+540235b81ff97dd419fdd5b4a20912ae892a69d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("PazYSalvoAPP.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PazYSalvoAPP.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

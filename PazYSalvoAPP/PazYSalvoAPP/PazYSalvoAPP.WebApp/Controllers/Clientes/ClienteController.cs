@@ -20,12 +20,12 @@ namespace PazYSalvoAPP.WebApp.Controllers.Clientes
         [HttpGet]
         public async Task<IActionResult> ListarClientes()
         {
-            IQueryable<Estado>? consultaDeClientes = await _clienteService.LeerTodos();
+            IQueryable<Cliente>? consultaDeClientes = await _clienteService.LeerTodos();
 
-            List<EstadoViewModel> listadoDeClientes = consultaDeClientes.Select(e => new ClienteViewModel
+            List<ClienteViewModel> listadoDeClientes = consultaDeClientes.Select(e => new ClienteViewModel
             {
                 Id = e.Id,
-                Nombre = e.Nombre,
+                PersonaId = e.PersonaId,
                 RolId = e.RolId,
 
             }).ToList();

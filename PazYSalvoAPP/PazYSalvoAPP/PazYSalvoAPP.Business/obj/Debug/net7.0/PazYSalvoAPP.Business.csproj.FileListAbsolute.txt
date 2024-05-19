@@ -24,3 +24,12 @@ C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\P
 C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\obj\Debug\net7.0\PazYSalvoAPP.Business.dll
 C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\obj\Debug\net7.0\refint\PazYSalvoAPP.Business.dll
 C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\obj\Debug\net7.0\PazYSalvoAPP.Business.pdb
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Business.deps.json
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Business.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Business.pdb
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Data.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Models.dll
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Data.pdb
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\bin\Debug\net7.0\PazYSalvoAPP.Models.pdb
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\obj\Debug\net7.0\PazYSalv.BE8FB390.Up2Date
+C:\Users\john\Desktop\PazYSalvoAPP-john\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP\PazYSalvoAPP.Business\obj\Debug\net7.0\ref\PazYSalvoAPP.Business.dll

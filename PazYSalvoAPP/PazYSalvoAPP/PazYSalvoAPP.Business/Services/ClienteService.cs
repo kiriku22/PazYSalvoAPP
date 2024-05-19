@@ -70,7 +70,7 @@ namespace PazYSalvoAPP.Business.Services
 
             try
             {
-                _context.Estados.Add(model); // Agregar la factura al contexto
+                _context.Clientes.Add(model); // Agregar la factura al contexto
                 await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
                 return !result; // Devolver el valor inverso de result (true si se insertó correctamente, false si no)
@@ -82,23 +82,23 @@ namespace PazYSalvoAPP.Business.Services
         }
 
         // Método para leer una factura de la base de datos por su ID
-        public async Task<Estado> Leer(int id)
+        public async Task<Cliente> Leer(int id)
         {
             if (id == default(int)) return null; // Verificar si el ID es cero, si es así, devolver null
 
-            var estado = _context.Estados.FirstAsync(f => f.Id == id); // Buscar la factura por su ID
+            var cliente = _context.Clientes.FirstAsync(f => f.Id == id); // Buscar la factura por su ID
 
-            if (estado == null) return null; // Si la factura no se encontró, devolver null
+            if (cliente == null) return null; // Si la factura no se encontró, devolver null
 
-            return await estado; // Devolver la factura encontrada
+            return await cliente; // Devolver la factura encontrada
         }
 
         // Método para leer todas las facturas de la base de datos
-        public async Task<IQueryable<Estado>> LeerTodos()
+        public async Task<IQueryable<Cliente>> LeerTodos()
         {
-            IQueryable<Estado> listaDeEstados = _context.Estados; // Obtener todas las facturas del contexto
+            IQueryable<Cliente> listaDeClientes = _context.Clientes; // Obtener todas las facturas del contexto
 
-            return listaDeEstados; // Devolver la lista de facturas
+            return listaDeClientes; // Devolver la lista de facturas
         }
 
 

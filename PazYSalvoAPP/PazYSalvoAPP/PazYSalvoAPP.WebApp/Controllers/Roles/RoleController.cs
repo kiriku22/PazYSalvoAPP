@@ -20,13 +20,17 @@ namespace PazYSalvoAPP.WebApp.Controllers.Roles
         [HttpGet]
         public async Task<IActionResult> ListarRoles()
         {
-            IQueryable<Estado>? consultaDeRoles = await _roleService.LeerTodos();
+            IQueryable<Role>? consultaDeRoles = await _roleService.LeerTodos();
 
-            List<EstadoViewModel> listadoDeRoles = consultaDeRoles.Select(e => new RoleViewModel
+            List<RoleViewModel> listadoDeRoles = consultaDeRoles.Select(e => new RoleViewModel
             {
+
                 Id = e.Id,
                 Nombre = e.Nombre,
                 Descripcion = e.Descripcion,
+                Activo =e.Activo,
+                FechaDeCreacion=e.FechaDeCreacion,
+
 
             }).ToList();
 

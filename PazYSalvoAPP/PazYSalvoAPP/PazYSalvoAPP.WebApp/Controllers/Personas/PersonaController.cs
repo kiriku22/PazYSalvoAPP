@@ -7,7 +7,7 @@ namespace PazYSalvoAPP.WebApp.Controllers.Personas
 {
     public class PersonaController : Controller
     {
-        private readonly IPersonaService _pagoService;
+        private readonly IPersonaService _personaService;
         public PersonaController(IPersonaService personaService)
         {
             _personaService = personaService;
@@ -20,9 +20,9 @@ namespace PazYSalvoAPP.WebApp.Controllers.Personas
         [HttpGet]
         public async Task<IActionResult> ListarPersonas()
         {
-            IQueryable<Estado>? consultaDePersonas = await _personaService.LeerTodos();
+            IQueryable<Persona>? consultaDePersonas = await _personaService.LeerTodos();
 
-            List<PagoViewModel> listadoDePersonas = consultaDePersonas.Select(e => new PersonaViewModel
+            List<PersonaViewModel> listadoDePersonas = consultaDePersonas.Select(e => new PersonaViewModel
             {
 
                 Id = e.Id,

@@ -11,8 +11,9 @@ namespace PazYSalvoAPP.Business.Services
     {
         Task<bool> Insertar(Cliente model);
         Task<bool> Actualizar(Cliente model);
-        Task<Estado> Leer(int id); // ?
+        Task<Cliente> Leer(int id); // ?
         Task<IQueryable<Cliente>> LeerTodos(); // ?
         Task<bool> Eliminar(int id);
 
     }
+}

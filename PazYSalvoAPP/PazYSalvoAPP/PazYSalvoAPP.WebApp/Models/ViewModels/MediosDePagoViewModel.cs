@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PazYSalvoAPP.WebApp.Models.ViewModels
 {
-    public class ClienteViewModel
+    public class MediosDePagoViewModel
     {
         public int Id { get; set; }
 

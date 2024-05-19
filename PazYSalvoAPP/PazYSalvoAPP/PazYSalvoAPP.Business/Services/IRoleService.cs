@@ -11,7 +11,7 @@ namespace PazYSalvoAPP.Business.Services
     {
         Task<bool> Insertar(Role model);
         Task<bool> Actualizar(Role model);
-        Task<Estado> Leer(int id); // ?
+        Task<Role> Leer(int id); // ?
         Task<IQueryable<Role>> LeerTodos(); // ?
         Task<bool> Eliminar(int id);
 

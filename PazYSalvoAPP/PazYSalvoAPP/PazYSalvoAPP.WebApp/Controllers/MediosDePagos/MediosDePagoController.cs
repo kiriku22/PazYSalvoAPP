@@ -20,7 +20,7 @@ namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
         [HttpGet]
         public async Task<IActionResult> ListarMediosDePagos()
         {
-            IQueryable<Estado>? consultaDeMediosDePagos = await _mediosdepagoService.LeerTodos();
+            IQueryable<MediosDePago>? consultaDeMediosDePagos = await _mediosdepagoService.LeerTodos();
 
             List<MediosDePagoViewModel> listadoDeMediosDePagos = consultaDeMediosDePagos.Select(e => new MediosDePagoViewModel
             {
