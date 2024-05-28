@@ -26,9 +26,18 @@ namespace PazYSalvoAPP.Business.Services
         {
             bool result = default(bool); // Inicialización de una variable booleana llamada result
 
+            int mediosDePagoId = model.Id;
+
+            if (mediosDePagoId == 0 || mediosDePagoId == null) return result;
+
             try
             {
-                _context.MediosDePagos.Update(model); // Actualización de la factura en el contexto
+                MediosDePago mediosDePago = await Leer(mediosDePagoId);
+
+                mediosDePago.Nombre = model.Nombre;
+                mediosDePago.Descripcion = model.Descripcion;
+              
+                _context.MediosDePagos.Update(mediosDePago); // Actualización de la factura en el contexto
                 await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
                 return !result; // Devolver el valor inverso de result (true si se actualizó correctamente, false si no)
@@ -38,7 +47,6 @@ namespace PazYSalvoAPP.Business.Services
                 return result; // Devolver el valor por defecto de result (false)
             }
         }
-
         // Método para eliminar una factura de la base de datos por su ID
         public async Task<bool> Eliminar(int id)
         {

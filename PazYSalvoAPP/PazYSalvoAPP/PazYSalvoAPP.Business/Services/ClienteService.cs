@@ -25,9 +25,18 @@ namespace PazYSalvoAPP.Business.Services
         public async Task<bool> Actualizar(Cliente model)
         {
             bool result = default(bool); // Inicialización de una variable booleana llamada result
+            int clienteId = model.Id;
 
+            if (clienteId == 0 || clienteId == null) return result;
             try
             {
+                Cliente cliente = await Leer(clienteId);
+
+                
+
+                cliente.PersonaId = model.PersonaId;
+                cliente.RolId = model.RolId;
+                
                 _context.Clientes.Update(model); // Actualización del cliente en el contexto
                 await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 

@@ -1,11 +1,11 @@
-﻿@using PazYSalvoAPP.Models;
+﻿﻿﻿@using PazYSalvoAPP.Models;
 @model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.FacturaViewModel>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    
-    
+
+
 }
 
 <div class="container"
@@ -20,12 +20,11 @@
     </p>
 
     <div class="opciones-container">
-        <a class="btn btn-primary btn-sm"id="btnVerFacturas">Ver Facturas</a>
+        <a class="btn btn-primary btn-sm" id="btnVerFacturas">Ver Facturas</a>
         <a class="btn btn-success btn-sm visually-hidden" id="btnNuevaFactura">Nueva factura</a>
     </div>
 
     <div id="tblListaDeFacturas">
-
     </div>
 </div>
 
@@ -64,7 +63,7 @@
                         <br />
                         <div class="form-group">
                             <label for="ServicioAdquiridoId">Servicio Adquirido</label>
-                            
+
                             <select class="form-select" id="ServicioAdquiridoId" name="ServicioAdquiridoId" required>
                                 <option value="">Selecciona un servicio</option>
                                 @foreach (var servicio in ViewBag.servicios as List<Servicio>)
@@ -76,7 +75,7 @@
                         <br />
                         <div class="form-group">
                             <label for="MedioDePagoId">Medio de Pago</label>
-                            
+
                             <select class="form-select" id="MedioDePagoId" name="MedioDePagoId" required>
                                 <option value="">Selecciona un medio de pago</option>
                                 @foreach (var medio in ViewBag.mediosDePago as List<MediosDePago>)
@@ -88,7 +87,7 @@
                         <br />
                         <div class="form-group">
                             <label for="EstadoId">Estado</label>
-                            
+
                             <select class="form-select" id="EstadoId" name="EstadoId" required>
                                 <option value="">Selecciona el estado</option>
                                 @foreach (var estado in ViewBag.estados as List<Estado>)
@@ -163,16 +162,16 @@
                         $("#modal").modal("hide");
                     },
                     error: function (jqxhr, textstatus, errorthrown) {
-                        
+
                         console.error("error adding invoice:", textstatus, errorthrown);
-                            
+
                         alert("error! no se agregó factura");
                         $("#modal").modal("hide");
                     },
-               });
-                
-            });         
-            
+                });
+
+            });
+
 
         });
 
@@ -182,6 +181,6 @@
             $("#modal").modal("show");
         }
 
-        
+
     </script>
 }

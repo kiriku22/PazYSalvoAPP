@@ -23,12 +23,25 @@ namespace PazYSalvoAPP.Business.Services
 
         // Método para actualizar una factura en la base de datos
         public async Task<bool> Actualizar(Role model)
-        {
+       {
             bool result = default(bool); // Inicialización de una variable booleana llamada result
+
+            int roleId = model.Id;
+
+            if (roleId == 0 || roleId == null) return result;
 
             try
             {
-                _context.Roles.Update(model); // Actualización de la factura en el contexto
+                Role role = await Leer(roleId);
+
+
+                role.Nombre = model.Nombre;
+                role.Descripcion = model.Descripcion;
+                role.Activo = model.Activo;
+                
+
+
+                _context.Roles.Update(role); // Actualización de la factura en el contexto
                 await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
                 return !result; // Devolver el valor inverso de result (true si se actualizó correctamente, false si no)
@@ -38,6 +51,7 @@ namespace PazYSalvoAPP.Business.Services
                 return result; // Devolver el valor por defecto de result (false)
             }
         }
+
 
         // Método para eliminar una factura de la base de datos por su ID
         public async Task<bool> Eliminar(int id)

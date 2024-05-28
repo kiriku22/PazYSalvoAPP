@@ -1,4 +1,5 @@
-﻿using PazYSalvoAPP.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PazYSalvoAPP.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace PazYSalvoAPP.WebApp.Models.ViewModels
@@ -13,6 +14,10 @@ namespace PazYSalvoAPP.WebApp.Models.ViewModels
 
         public DateTime? FechaDeCreacion { get; set; }
 
+        public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
+
+        public virtual Persona? Persona { get; set; }
+
+        public virtual Role? Rol { get; set; }
     }
 }
-

@@ -33,36 +33,85 @@ namespace PazYSalvoAPP.WebApp.Controllers.Clientes
             return PartialView("_ListadoDeCliente",
                               listadoDeClientes);
         }
-        //[HttpPost] // *
-        //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Estado estado = new estado()
-        //    {
+         [HttpPost]
+        public async Task<IActionResult> AgregarClientes([FromBody] ClienteViewModel model)
+        {
+            Cliente cliente = new Cliente()
+            {
+                PersonaId = model.PersonaId,
+                RolId = model.RolId,
+               
+            };
 
-        //        Nombre = e.Nombre,
-        //        Descripcion = e.Descripcion,
-        //    };
+            bool response = await _clienteService.Insertar(cliente);
 
-        //    bool response = await _estadoService.Insertar(estado);
+            if (response)
+            {
 
-        //    return RedirectToAction("Index");
+                return Json(new { success = true, message = "Cliente agregado con éxito" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Error al agregar cliente" });
+            }
 
-        //}
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> ActualizarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Factura factura = new Factura()
-        //    {
+        public async Task<IActionResult> EditarCliente(int id)
+        {
+            var cliente = await _clienteService.Leer(id);
+             if (cliente == null)
+    {
+        // Muestra una alerta en el navegador si el cliente no se encuentra
+        TempData["ErrorMessage"] = "El cliente que intentas editar no fue encontrado.";
+
+        return RedirectToAction("Index");
+    }
 
 
-        //    };
+            ClienteViewModel clienteAEditar = new ClienteViewModel()
+            {
+                PersonaId = cliente.PersonaId,
+                RolId = cliente.RolId,
+                
+            };
 
-        //    bool response = await _estadoService.Actualizar(factura);
 
-        //    return StatusCode(StatusCodes.Status200OK,
-        //                      new { valor = response });
+            return View("EditarCliente", clienteAEditar);
+        }
 
-        //}
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> ActualizarCliente(ClienteViewModel model)
+        {
+            Cliente clienteAEditar = await _clienteService.Leer(model.Id);
+            if (clienteAEditar == null)
+            {
+                TempData["ErrorMessage"] = "Cliente no encontrado";
+                return RedirectToAction("EditarCliente", new { id = model.Id });
+            }
+
+            Cliente cliente = new Cliente()
+            {
+               
+                PersonaId = model.PersonaId == null ? clienteAEditar.PersonaId : model.PersonaId,
+                RolId = model.RolId == null ? clienteAEditar.RolId : model.RolId
+                
+            };
+
+            bool response = await _clienteService.Actualizar(cliente);
+
+            if (response)
+            {
+                return RedirectToAction("Index", "Cliente");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Error al actualizar cliente";
+                return RedirectToAction("EditarCliente", new { id = model.Id });
+            }
+        }
     }
 }
+
+     

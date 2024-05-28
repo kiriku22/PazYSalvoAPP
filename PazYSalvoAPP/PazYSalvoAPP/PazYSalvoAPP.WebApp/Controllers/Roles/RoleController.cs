@@ -37,36 +37,80 @@ namespace PazYSalvoAPP.WebApp.Controllers.Roles
             return PartialView("_ListadoDeRole",
                               listadoDeRoles);
         }
-        //[HttpPost] // *
-        //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Estado estado = new estado()
-        //    {
+        [HttpPost]
+        public async Task<IActionResult> AgregarRoles([FromBody] RoleViewModel model)
+        { 
+            
 
-        //        Nombre = e.Nombre,
-        //        Descripcion = e.Descripcion,
-        //    };
+            Role role = new Role()
+            {
+                Nombre = model.Nombre,
+                Descripcion = model.Descripcion,
+                Activo = model.Activo
+                
+            };
 
-        //    bool response = await _estadoService.Insertar(estado);
+            bool response = await _roleService.Insertar(role);
 
-        //    return RedirectToAction("Index");
+            if (response)
+            {
 
-        //}
+                return Json(new { success = true, message = "Rol agregada con éxito" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Error al agregar rol" });
+            }
 
-        //[HttpPost]
-        //public async Task<IActionResult> ActualizarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Factura factura = new Factura()
-        //    {
+        }
+        public async Task<IActionResult> EditarRole(int id)
+        {
+            var role = await _roleService.Leer(id);
+            RoleViewModel roleAEditar = new RoleViewModel()
+            {
+                Id = role.Id,
+                Nombre = role.Nombre,
+                Descripcion = role.Descripcion,
+                Activo = role.Activo
+                
+            };
 
 
-        //    };
+            return View("EditarRole", roleAEditar);
+        }
 
-        //    bool response = await _estadoService.Actualizar(factura);
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> ActualizarRole(RoleViewModel model)
+        {
+            Role roleAEditar = await _roleService.Leer(model.Id);
+            if (roleAEditar == null)
+            {
+                TempData["ErrorMessage"] = "Rol no encontrado";
+                return RedirectToAction("EditarRoles", new { id = model.Id });
+            }
 
-        //    return StatusCode(StatusCodes.Status200OK,
-        //                      new { valor = response });
+            Role role = new Role()
+            {
+                Id = model.Id,
+                Nombre = model.Nombre == null ? roleAEditar.Nombre : model.Nombre,
+                Descripcion = model.Descripcion == null ? roleAEditar.Descripcion : model.Descripcion,
+                Activo = model.Activo == null ? roleAEditar.Activo : model.Activo
+                
 
-        //}
+            };
+
+            bool response = await _roleService.Actualizar(role);
+
+            if (response)
+            {
+                return RedirectToAction("Index", "Role");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Error al actualizar rol";
+                return RedirectToAction("EditarRole", new { id = model.Id });
+            }
+        }
     }
 }

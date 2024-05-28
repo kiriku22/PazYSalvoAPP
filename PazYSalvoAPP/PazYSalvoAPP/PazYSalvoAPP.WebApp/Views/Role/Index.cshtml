@@ -1,19 +1,24 @@
-﻿@*@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.EstadoViewModel>*@
+﻿﻿@using PazYSalvoAPP.Models;
+
+@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.RoleViewModel>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
-<div class="container">
-    <h2>Administrador de Roles</h2>
+<h2>Administrador de roles</h2>
+
+<div class="container"
+     id="roleContainer">
+
     <p class="descripcion">
-        Este administrador nos permite visualizar y gestionar todo lo referentea roles del negocio.
+        Este administrador nos permite visualizar y gestionar todo lo referente a los roles del negocio.
     </p>
 
     <div class="opciones-container">
-        <a class="btn btn-primary btn-sm" id="btnVerRoles">Ver Roles</a>
-        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoRole">Nuevo Role</a>
+        <a class="btn btn-primary btn-sm" id="btnVerRoles">Ver roles</a>
+        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoRole">Nuevo rol</a>
     </div>
 
     <div id="tblListaDeRoles">
@@ -29,38 +34,36 @@
                     <h5 class="modal-title" id="tituloModal"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="frmModalRole">
+                <form asp-action="AgregarRole" asp-controller="Role" id="frmModalRole">
                     <div class="modal-body">
 
                         <div class="form-group">
-
-                            <input type="hidden" class="form-control" id="IdValor">
+                            <input type="hidden" class="form-control" id="Id" name="Id">
                         </div>
 
                         <div class="form-group">
-                            <label for="RoleValor">Nombre</label>
-                            <input type="text" class="form-control" id="RoleValor">
-                        </div>
-    
-                
-                
-                        <div class="form-group">
-                            <label for="RoleValor">Descripción</label>
-                            <input type="text" class="form-control" id="RoleValor">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control" id="Nombre" name="Nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="RoleValor">Activo</label>
-                            <input type="text" class="form-control" id="RoleValor">
+                            <label for="Descripcion">Descripción</label>
+                            <input type="text" class="form-control" id="Descripcion" name="Descripcion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Activo">Activo</label>
+                            <input type="text" class="form-control" id="Activo" name="Activo" required>
                         </div>
 
-                        
 
+
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="btnActualizarRole">Agregar</button>
+                        <button type="button" class="btn btn-primary" id="btnActualizarRole">Agregar</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -68,46 +71,71 @@
 </div>
 @*FIN MODAL*@
 
-
 @section Scripts {
     <script>
+
         $(document).ready(function () {
-            
-            // btnVerEstados
+
             $("#btnVerRoles").click(async function () {
                 const url = "@Url.Action("ListarRoles", "Role")";
                 const response = await $.ajax({
                     url: url,
                     method: "GET",
-                    dataType: "html"
+                    dataType: "html",
                 });
 
                 $("#tblListaDeRoles").html(response);
                 $("#btnVerRoles").hide();
                 $("#btnNuevoRole").removeClass("visually-hidden"); // visually-hidden
-
             });
 
-            // mostrar modal nuevo estado
             $("#btnNuevoRole").click(function () {
                 mostrarModal();
+            });
 
+            $("#btnActualizarRole").click(async function () {
+                const url = "@Url.Action("AgregarRoles", "Role")";
+                const $formulario = $('#frmModalRole'); // captura contenido form
+
+                var estado = $formulario.find('#Activo').val() == "1" ? true : false;
+                var role = {
+                    //id: $('#id').val(),
+                    nombre: $formulario.find('#Nombre').val(),
+                    descripcion: $formulario.find('#Descripcion').val(),
+                    activo: estado,
+
+
+                };
+                //console.log(factura);
+                const response = await $.ajax({
+                    url: url,
+                    method: "post",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(role), // Serializa a JSON
+                    success: function () {
+                        alert("Rol agregado con éxito");
+                        $("#modal").modal("hide");
+                    },
+                    error: function (jqxhr, textstatus, errorthrown) {
+
+                        console.error("error adding invoice:", textstatus, errorthrown);
+
+                        alert("error! no se agregó el rol");
+                        $("#modal").modal("hide");
+                    },
+                });
 
             });
 
         });
 
         function mostrarModal() {
-
-            // Actualiza el título de la modal
-            $("#tituloModal").text("Role");
-
-            // Limpia los campos del formulario
+            $("#tituloModal").text("Nuevo rol");
             $("#frmModalRole").trigger("reset");
-
-            // Muestra la modal
             $("#modal").modal("show");
-
         }
+
     </script>
+
 }

@@ -1,5 +1,4 @@
-﻿using PazYSalvoAPP.Models;
-using System.ComponentModel.DataAnnotations;
+﻿﻿using PazYSalvoAPP.Models;
 
 namespace PazYSalvoAPP.WebApp.Models.ViewModels
 {
@@ -15,7 +14,10 @@ namespace PazYSalvoAPP.WebApp.Models.ViewModels
 
         public string DocumentoIdentificacion { get; set; } = null!;
 
-        public DateTime? FechaDeCreacion { get; set; }
+       
+
+        public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
+
+        public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
     }
 }
-

@@ -25,9 +25,22 @@ namespace PazYSalvoAPP.Business.Services
         {
             bool result = default(bool); // Inicialización de una variable booleana llamada result
 
+            int personaId = model.Id;
+
+            if (personaId == 0 || personaId == null) return result;
+
             try
             {
-                _context.Personas.Update(model); // Actualización del cliente en el contexto
+                Persona persona = await Leer(personaId);
+
+ 
+                persona.Nombres = model.Nombres;
+                persona.Telefono = model.Telefono;
+                persona.CorreoElectronico = model.CorreoElectronico;
+                persona.DocumentoIdentificacion = model.DocumentoIdentificacion;
+
+               
+                _context.Personas.Update(persona); // Actualización de la factura en el contexto
                 await _context.SaveChangesAsync(); // Guardar los cambios en la base de datos
 
                 return !result; // Devolver el valor inverso de result (true si se actualizó correctamente, false si no)
@@ -36,6 +49,10 @@ namespace PazYSalvoAPP.Business.Services
             {
                 return result; // Devolver el valor por defecto de result (false)
             }
+
+           
+
+
         }
 
         // Método para eliminar una factura de la base de datos por su ID

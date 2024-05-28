@@ -1,19 +1,28 @@
-﻿@*@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.EstadoViewModel>*@
+﻿﻿﻿@using PazYSalvoAPP.Models;
+
+@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.PagoViewModel>
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
-<div class="container">
-    <h2>Administrador de Pagos</h2>
+
+<h2>Administrador de Pagos</h2>
+
+<div class="container"
+     id="pagoContainer"
+
+
+
     <p class="descripcion">
-        Este administrador nos permite visualizar y gestionar todo lo referente a los pagos del negocio.
+        Este administrador nos permite visualizar y gestionar todo lo referente a los Pagos del negocio.
     </p>
 
     <div class="opciones-container">
         <a class="btn btn-primary btn-sm" id="btnVerPagos">Ver Pagos</a>
-        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoPagos">Nuevo Estado</a>
+        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoPago">Nuevo pago</a>
     </div>
 
     <div id="tblListaDePagos">
@@ -29,79 +38,107 @@
                     <h5 class="modal-title" id="tituloModal"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="frmModalPago">
+                <form asp-action="AgregarPago" asp-controller="Pago" id="frmModalPago">
                     <div class="modal-body">
 
                         <div class="form-group">
-
-                            <input type="hidden" class="form-control" id="IdValor">
+                            <input type="hidden" class="form-control" id="Id" name="Id">
                         </div>
 
                         <div class="form-group">
-                            <label for="SaldoValor">MontoDePago</label>
-                            <input type="text" class="form-control" id="SaldoValor">
+                            <label for="MontoDePago">Monto de Pago</label>
+                            <input type="number" class="form-control" id="MontoDePago" name="MontoDePago" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="ClienteValor">Factura</label>
-                            <input type="text" class="form-control" id="ClienteValor">
+                            <label for="FacturaId">FacturaId</label>
+                            <input type="number" class="form-control" id="FacturaId" name="FacturaId" required>
                         </div>
+                        <div class="form-group">
+                            <label for="Activo">Activo</label>
+                            <input type="text" class="form-control" id="Activo" name="Activo" required>
+                        </div>
+                        <br />
+                       
 
-                        
 
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="btnActualizarPago">Agregar</button>
+                        <button type="button" class="btn btn-primary" id="btnActualizarPago">Agregar</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
 
 </div>
-@*FIN MODAL*@
 
 
 @section Scripts {
     <script>
+
         $(document).ready(function () {
-            
-            // btnVerEstados
+
             $("#btnVerPagos").click(async function () {
                 const url = "@Url.Action("ListarPagos", "Pago")";
                 const response = await $.ajax({
                     url: url,
                     method: "GET",
-                    dataType: "html"
+                    dataType: "html",
                 });
 
                 $("#tblListaDePagos").html(response);
                 $("#btnVerPagos").hide();
                 $("#btnNuevoPago").removeClass("visually-hidden"); // visually-hidden
-
             });
 
-            // mostrar modal nuevo estado
             $("#btnNuevoPago").click(function () {
                 mostrarModal();
+            });
 
+            $("#btnActualizarPago").click(async function () {
+                const url = "@Url.Action("AgregarPagos", "Pago")";
+                const $formulario = $('#frmModalPago'); // captura contenido form
+                var pago = {
+                    //id: $('#id').val(),
+                    montoDePago: $formulario.find('#MontoDePago').val(),
+                    facturaId: $formulario.find('#FacturaId').val(),
+                    activo: $formulario.find('#Activo').val(),
+                    
+
+                };
+                //console.log(factura);
+                const response = await $.ajax({
+                    url: url,
+                    method: "post",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(pago), // Serializa a JSON
+                    success: function () {
+                        alert("Pago agregado con éxito");
+                        $("#modal").modal("hide");
+                    },
+                    error: function (jqxhr, textstatus, errorthrown) {
+
+                        console.error("error adding invoice:", textstatus, errorthrown);
+
+                        alert("error! no se agregó el pago");
+                        $("#modal").modal("hide");
+                    },
+                });
 
             });
 
         });
 
         function mostrarModal() {
-
-            // Actualiza el título de la modal
-            $("#tituloModal").text("Estado");
-
-            // Limpia los campos del formulario
-            $("#frmModalEstado").trigger("reset");
-
-            // Muestra la modal
+            $("#tituloModal").text("Nuevo Pago");
+            $("#frmModalPago").trigger("reset");
             $("#modal").modal("show");
-
         }
+
     </script>
+
 }

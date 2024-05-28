@@ -15,7 +15,7 @@ public partial class Persona
 
     public string DocumentoIdentificacion { get; set; } = null!;
 
-    public DateTime? FechaDeCreacion { get; set; }
+    
 
     public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
 

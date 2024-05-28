@@ -1,18 +1,22 @@
-﻿@*
+﻿﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+<h3>Medios de pago</h3>
+
 
 <hr />
 <div class="container">
 
-    <table class="table table-striped">
+    <table class="table table-striped" id="tblMediosDePagos">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Descripción</th>
-                <th>FechaDeCreacion</th>
+                <th>Descripcion</th>
+                
+
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -22,9 +26,11 @@
                 <tr>
                     <th>@item.Nombre</th>
                     <td>@item.Descripcion</td>
-                   <td>@item.FechaDeCreacion</td>
+                    
+
+
                     <td>
-                        <a class="btn btn-info btn-sm">Editar</a>
+                        <a class="btn btn-info btn-sm btnEditarMediosDePago" href="@Url.Action("EditarMediosDePago", "MediosDePago", new { id = item.Id })">Editar</a>
                         <a class="btn btn-warning btn-sm disabled">Eliminar</a>
                     </td>
                 </tr>

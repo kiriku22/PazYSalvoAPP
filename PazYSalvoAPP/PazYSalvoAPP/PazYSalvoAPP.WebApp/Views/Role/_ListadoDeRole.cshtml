@@ -1,18 +1,24 @@
-﻿@*
+﻿﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
+<h3>Listado de Roles</h3>
+
+
 <hr />
 <div class="container">
 
-    <table class="table table-striped">
+    <table class="table table-striped" id="tblRoles">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Activo</th>
+
+
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +29,11 @@
                     <th>@item.Nombre</th>
                     <td>@item.Descripcion</td>
                     <td>@item.Activo</td>
+                    
+
+
                     <td>
-                        <a class="btn btn-info btn-sm">Editar</a>
+                        <a class="btn btn-info btn-sm btnEditarRole" href="@Url.Action("EditarRole", "Role", new { id = item.Id })">Editar</a>
                         <a class="btn btn-warning btn-sm disabled">Eliminar</a>
                     </td>
                 </tr>

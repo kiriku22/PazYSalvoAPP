@@ -1,22 +1,26 @@
-﻿@*@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.EstadoViewModel>*@
+﻿﻿@using PazYSalvoAPP.Models;
+
+@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.MediosDePagoViewModel>
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-}
+}<h2>Administrador de medios de pago</h2>
 
-<div class="container">
-    <h2>Administrador de MediosDePago</h2>
+<div class="container"
+     id="mediosDePagoContainer">
+
     <p class="descripcion">
-        Este administrador nos permite visualizar y gestionar todo lo referente a los medios de pago.
+        Este administrador nos permite visualizar y gestionar todo lo referente a los medios de pago del negocio.
     </p>
 
     <div class="opciones-container">
-        <a class="btn btn-primary btn-sm" id="btnVerMediosDePago">Ver Medios de pago</a>
-        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoMediosDePago">Nuevo Medio De Pago</a>
+        <a class="btn btn-primary btn-sm" id="btnVerMediosDePagos">Ver medios de pagos</a>
+        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoMediosDePago">Nuevo medio de pago</a>
     </div>
 
-    <div id="tblListaDeMediosDePago">
+    <div id="tblListaDeMediosDePagos">
     </div>
 </div>
 
@@ -29,83 +33,102 @@
                     <h5 class="modal-title" id="tituloModal"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="frmModalEstado">
+                <form asp-action="AgregarMediosDePago" asp-controller="MediosDePago" id="frmModalMediosDePago">
                     <div class="modal-body">
 
                         <div class="form-group">
-
-                            <input type="hidden" class="form-control" id="IdValor">
+                            <input type="hidden" class="form-control" id="Id" name="Id">
                         </div>
 
                         <div class="form-group">
-                            <label for="SaldoValor">Nombre</label>
-                            <input type="text" class="form-control" id="SaldoValor">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" class="form-control" id="Nombre" name="Nombre" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="ClienteValor">Descripción</label>
-                            <input type="text" class="form-control" id="ClienteValor">
-                        </div>
-                         <div class="form-group">
-                            <label for="ClienteValor">Fecha de Creacion</label>
-                            <input type="text" class="form-control" id="ClienteValor">
+                            <label for="Descripcion">Descripción</label>
+                            <input type="text" class="form-control" id="Descripcion" name="Descripcion" required>
                         </div>
 
-                        
 
+
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="btnActualizarFactura">Agregar</button>
+                        <button type="button" class="btn btn-primary" id="btnActualizarMediosDePago">Agregar</button>
                     </div>
                 </form>
+
             </div>
+
         </div>
     </div>
 
 </div>
 @*FIN MODAL*@
 
-
 @section Scripts {
     <script>
+
         $(document).ready(function () {
-            
-            // btnVerMediosDePago
-            $("#btnVerMediosDePago").click(async function () {
-                const url = "@Url.Action("ListarMediosDePago", "MediosDePago")";
+
+            $("#btnVerMediosDePagos").click(async function () {
+                const url = "@Url.Action("ListarMediosDePagos", "MediosDePago")";
                 const response = await $.ajax({
                     url: url,
                     method: "GET",
-                    dataType: "html"
+                    dataType: "html",
                 });
 
-                $("#tblListaDeMediosDePago").html(response);
-                $("#btnVerMediosDePago").hide();
+                $("#tblListaDeMediosDePagos").html(response);
+                $("#btnVerMediosDePagos").hide();
                 $("#btnNuevoMediosDePago").removeClass("visually-hidden"); // visually-hidden
-
             });
 
-            // mostrar modal nuevo estado
             $("#btnNuevoMediosDePago").click(function () {
                 mostrarModal();
+            });
 
+            $("#btnActualizarMediosDePago").click(async function () {
+                const url = "@Url.Action("AgregarMediosDePagos", "MediosDePago")";
+                const $formulario = $('#frmModalMediosDePago'); // captura contenido form
+                var mediosDePago = {
+                    //id: $('#id').val(),
+                    nombre: $formulario.find('#Nombre').val(),
+                    descripcion: $formulario.find('#Descripcion').val(),
+
+
+                };
+                //console.log(factura);
+                const response = await $.ajax({
+                    url: url,
+                    method: "post",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(mediosDePago), // Serializa a JSON
+                    success: function () {
+                        alert("Medio de pago agregado con éxito");
+                        $("#modal").modal("hide");
+                    },
+                    error: function (jqxhr, textstatus, errorthrown) {
+
+                        console.error("error adding invoice:", textstatus, errorthrown);
+
+                        alert("error! no se agregó el medio de pago");
+                        $("#modal").modal("hide");
+                    },
+                });
 
             });
 
         });
 
         function mostrarModal() {
-
-            // Actualiza el título de la modal
-            $("#tituloModal").text("MediosDePago");
-
-            // Limpia los campos del formulario
+            $("#tituloModal").text("Nuevo medio de pago");
             $("#frmModalMediosDePago").trigger("reset");
-
-            // Muestra la modal
             $("#modal").modal("show");
-
         }
+
     </script>
+
 }

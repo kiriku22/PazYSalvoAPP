@@ -124,9 +124,7 @@ public partial class PazSalvoContext : DbContext
             entity.ToTable("MediosDePago");
 
             entity.Property(e => e.Descripcion).HasMaxLength(255);
-            entity.Property(e => e.FechaDeCreacion)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
+            
             entity.Property(e => e.Nombre).HasMaxLength(100);
         });
 
@@ -142,6 +140,10 @@ public partial class PazSalvoContext : DbContext
                 .HasDefaultValueSql("((0))")
                 .HasColumnType("decimal(10, 2)");
 
+            entity.HasOne(d => d.Factura).WithMany(p => p.Pagos)
+                .HasForeignKey(d => d.FacturaId)
+                .HasConstraintName("FK__Pagos__FacturaId__693CA210");
+
             
         });
 
@@ -151,9 +153,7 @@ public partial class PazSalvoContext : DbContext
 
             entity.Property(e => e.CorreoElectronico).HasMaxLength(100);
             entity.Property(e => e.DocumentoIdentificacion).HasMaxLength(20);
-            entity.Property(e => e.FechaDeCreacion)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
+            
             entity.Property(e => e.Nombres).HasMaxLength(100);
             entity.Property(e => e.Telefono).HasMaxLength(20);
         });

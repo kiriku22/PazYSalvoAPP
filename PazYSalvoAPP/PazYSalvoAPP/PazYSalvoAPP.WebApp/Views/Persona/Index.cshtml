@@ -1,19 +1,27 @@
-﻿@*@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.EstadoViewModel>*@
+﻿﻿@using PazYSalvoAPP.Models;
+
+@model IEnumerable<PazYSalvoAPP.WebApp.Models.ViewModels.PersonaViewModel>
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
 
-<div class="container">
-    <h2>Administrador de Personas</h2>
+<h2>Administrador de Personas</h2>
+
+<div class="container"
+     id="personaContainer"
+   
+
+   
     <p class="descripcion">
-        Este administrador nos permite visualizar y gestionar todo lo referente a las personas del negocio.
+        Este administrador nos permite visualizar y gestionar todo lo referente a las Personas del negocio.
     </p>
 
     <div class="opciones-container">
         <a class="btn btn-primary btn-sm" id="btnVerPersonas">Ver Personas</a>
-        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevoPersona">Nueva Persona</a>
+        <a class="btn btn-success btn-sm visually-hidden" id="btnNuevaPersona">Nueva persona</a>
     </div>
 
     <div id="tblListaDePersonas">
@@ -29,86 +37,110 @@
                     <h5 class="modal-title" id="tituloModal"></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" id="frmModalEstado">
+                <form asp-action="AgregarPersona" asp-controller="Persona" id="frmModalPersona">
                     <div class="modal-body">
 
                         <div class="form-group">
-
-                            <input type="hidden" class="form-control" id="IdValor">
+                            <input type="hidden" class="form-control" id="Id" name="Id">
                         </div>
 
                         <div class="form-group">
-                            <label for="PersonaValor">Nombre</label>
-                            <input type="text" class="form-control" id="PersonaValor">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="PersonaValor">Telefono</label>
-                            <input type="text" class="form-control" id="PersonaValor">
-                        </div>
-                    <div class="form-group">
-                            <label for="PersonaValor">CorreoElectronico</label>
-                            <input type="text" class="form-control" id="PersonaValor">
+                            <label for="Nombres">Nombres</label>
+                            <input type="text" class="form-control" id="Nombres" name="Nombres" required>
                         </div>
                         <div class="form-group">
-                            <label for="PersonaValor">DocumentoIdentificacion</label>
-                            <input type="text" class="form-control" id="PersonaValor">
+                            <label for="Telefono">Telefono</label>
+                            <input type="number" class="form-control" id="Telefono" name="Telefono" required>
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="CorreoElectronico">CorreoElectronico</label>
+                            <input type="email" class="form-control" id="CorreoElectronico" name="CorreoElectronico" required>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="DocumentoIdentificacion">DocumentoIdentificacion</label>
+                            <input type="number" class="form-control" id="DocumentoIdentificacion" name="DocumentoIdentificacion" required>
+                        </div>
+                        <br />
 
+
+                        <br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="btnActualizarPersona">Agregar</button>
+                        <button type="button" class="btn btn-primary" id="btnActualizarPersona">Agregar</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
-
 </div>
-@*FIN MODAL*@
 
 
 @section Scripts {
     <script>
+
         $(document).ready(function () {
-            
-            // btnVerEstados
-            $("#btnVerPersona").click(async function () {
+
+            $("#btnVerPersonas").click(async function () {
                 const url = "@Url.Action("ListarPersonas", "Persona")";
                 const response = await $.ajax({
                     url: url,
                     method: "GET",
-                    dataType: "html"
+                    dataType: "html",
                 });
 
-                $("#tblListaDeEstados").html(response);
+                $("#tblListaDePersonas").html(response);
                 $("#btnVerPersonas").hide();
-                $("#btnNuevoPersona").removeClass("visually-hidden"); // visually-hidden
-
+                $("#btnNuevaPersona").removeClass("visually-hidden"); // visually-hidden
+            });
+            
+            $("#btnNuevaPersona").click(function () {
+                mostrarModal();
             });
 
-            // mostrar modal nuevo estado
-            $("#btnNuevoPersona").click(function () {
-                mostrarModal();
+            $("#btnActualizarPersona").click(async function () {
+                const url = "@Url.Action("AgregarPersonas", "Persona")";
+                const $formulario = $('#frmModalPersona'); // captura contenido form
+                var persona = {
+                    //id: $('#id').val(),
+                    nombres: $formulario.find('#Nombres').val(),
+                    telefono: $formulario.find('#Telefono').val(),
+                    correoElectronico: $formulario.find('#CorreoElectronico').val(),
+                    documentoIdentificacion: $formulario.find('#DocumentoIdentificacion').val(),
 
+                };
+                //console.log(factura);
+                const response = await $.ajax({
+                    url: url,
+                    method: "post",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(persona), // Serializa a JSON
+                    success: function () {
+                        alert("Persona agregada con éxito");
+                        $("#modal").modal("hide");
+                    },
+                    error: function (jqxhr, textstatus, errorthrown) {
+
+                        console.error("error adding invoice:", textstatus, errorthrown);
+
+                        alert("error! no se agregó la persona");
+                        $("#modal").modal("hide");
+                    },
+                });
 
             });
 
         });
 
         function mostrarModal() {
-
-            // Actualiza el título de la modal
-            $("#tituloModal").text("Persona");
-
-            // Limpia los campos del formulario
+            $("#tituloModal").text("Nueva Persona");
             $("#frmModalPersona").trigger("reset");
-
-            // Muestra la modal
             $("#modal").modal("show");
-
         }
+
     </script>
+
 }

@@ -1,5 +1,4 @@
-﻿using PazYSalvoAPP.Models;
-using System.ComponentModel.DataAnnotations;
+﻿﻿using PazYSalvoAPP.Models;
 
 namespace PazYSalvoAPP.WebApp.Models.ViewModels
 {
@@ -13,6 +12,6 @@ namespace PazYSalvoAPP.WebApp.Models.ViewModels
 
         public DateTime? FechaDeCreacion { get; set; }
 
+        public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
     }
 }
-

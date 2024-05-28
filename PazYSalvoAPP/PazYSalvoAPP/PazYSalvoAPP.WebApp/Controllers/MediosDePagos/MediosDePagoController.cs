@@ -7,10 +7,10 @@ namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
 {
     public class MediosDePagoController : Controller
     {
-        private readonly IMediosDePagoService _mediosdepagoService;
-        public MediosDePagoController(IMediosDePagoService mediosdepagoService)
+        private readonly IMediosDePagoService _mediosDePagoService;
+        public MediosDePagoController(IMediosDePagoService mediosDePagoService)
         {
-            _mediosdepagoService = mediosdepagoService;
+            _mediosDePagoService = mediosDePagoService;
         }
         public IActionResult Index()
         {
@@ -20,7 +20,7 @@ namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
         [HttpGet]
         public async Task<IActionResult> ListarMediosDePagos()
         {
-            IQueryable<MediosDePago>? consultaDeMediosDePagos = await _mediosdepagoService.LeerTodos();
+            IQueryable<MediosDePago>? consultaDeMediosDePagos = await _mediosDePagoService.LeerTodos();
 
             List<MediosDePagoViewModel> listadoDeMediosDePagos = consultaDeMediosDePagos.Select(e => new MediosDePagoViewModel
             {
@@ -28,43 +28,79 @@ namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
                 Id = e.Id,
                 Nombre = e.Nombre,
                 Descripcion  = e.Descripcion ,
-                FechaDeCreacion =e.FechaDeCreacion,
+               
 
             }).ToList();
 
             return PartialView("_ListadoDeMediosDePagos",
                               listadoDeMediosDePagos);
         }
-        //[HttpPost] // *
-        //public async Task<IActionResult> AgregarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Estado estado = new estado()
-        //    {
+        
+        [HttpPost]
+        public async Task<IActionResult> AgregarMediosDepagos([FromBody] MediosDePagoViewModel model)
+        {
+            MediosDePago mediosDePago = new MediosDePago()
+            {
+                Nombre = model.Nombre,
+                Descripcion = model.Descripcion
+            };
 
-        //        Nombre = e.Nombre,
-        //        Descripcion = e.Descripcion,
-        //    };
+            bool response = await _mediosDePagoService.Insertar(mediosDePago);
 
-        //    bool response = await _estadoService.Insertar(estado);
+            if (response)
+            {
 
-        //    return RedirectToAction("Index");
+                return Json(new { success = true, message = "Medio de pago agregada con éxito" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Error al agregar medio de pago" });
+            }
 
-        //}
+        }
+        public async Task<IActionResult> EditarMediosDePago(int id)
+        {
+            var medioDePago = await _mediosDePagoService.Leer(id);
+            MediosDePagoViewModel mediosDePagoAEditar = new MediosDePagoViewModel()
+            {
+                Id = medioDePago.Id,
+                Nombre = medioDePago.Nombre,
+                Descripcion = medioDePago.Descripcion
+            };
 
-        //[HttpPost]
-        //public async Task<IActionResult> ActualizarFacturas([FromBody] FacturaViewModel model)
-        //{
-        //    Factura factura = new Factura()
-        //    {
 
+            return View("EditarMediosDePago", mediosDePagoAEditar);
+        }
 
-        //    };
+        [HttpPost]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> ActualizarMediosDePago(MediosDePagoViewModel model)
+        {
+            MediosDePago mediosDePagoAEditar = await _mediosDePagoService.Leer(model.Id);
+            if (mediosDePagoAEditar == null)
+            {
+                TempData["ErrorMessage"] = "Medios de pago no encontrado";
+                return RedirectToAction("EditarMediosDePagos", new { id = model.Id });
+            }
 
-        //    bool response = await _estadoService.Actualizar(factura);
+            MediosDePago mediosDePago = new MediosDePago()
+            {
+                Id = model.Id,
+                Nombre = model.Nombre == null ? mediosDePagoAEditar.Nombre : model.Nombre,
+                Descripcion = model.Descripcion == null ? mediosDePagoAEditar.Descripcion : model.Descripcion
+            };
 
-        //    return StatusCode(StatusCodes.Status200OK,
-        //                      new { valor = response });
+            bool response = await _mediosDePagoService.Actualizar(mediosDePago);
 
-        //}
+            if (response)
+            {
+                return RedirectToAction("Index", "MediosDePago");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Error al actualizar medio de pago";
+                return RedirectToAction("EditarMediosDePago", new { id = model.Id });
+            }
+        }
     }
 }
