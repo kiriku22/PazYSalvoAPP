@@ -35,7 +35,7 @@ namespace PazYSalvoAPP.WebApp.Controllers.Personas
 
             }).ToList();
 
-            return PartialView("_ListadoDePersonas",
+            return PartialView("_ListadoDePersona",
                               listadoDePersonas);
         }
         [HttpPost]

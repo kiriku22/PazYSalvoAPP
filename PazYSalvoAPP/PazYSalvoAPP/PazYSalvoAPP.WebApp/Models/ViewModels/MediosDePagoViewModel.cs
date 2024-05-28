@@ -10,7 +10,7 @@ namespace PazYSalvoAPP.WebApp.Models.ViewModels
 
         public string? Descripcion { get; set; }
 
-        public DateTime? FechaDeCreacion { get; set; }
+        
 
         public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
     }

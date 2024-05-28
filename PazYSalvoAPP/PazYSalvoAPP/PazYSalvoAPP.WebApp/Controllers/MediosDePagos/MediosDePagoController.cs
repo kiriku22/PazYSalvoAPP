@@ -32,7 +32,7 @@ namespace PazYSalvoAPP.WebApp.Controllers.MediosDePagos
 
             }).ToList();
 
-            return PartialView("_ListadoDeMediosDePagos",
+            return PartialView("_ListadoDeMediosDePago",
                               listadoDeMediosDePagos);
         }
         

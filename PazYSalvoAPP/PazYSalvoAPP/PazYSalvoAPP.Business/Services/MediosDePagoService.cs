@@ -94,11 +94,11 @@ namespace PazYSalvoAPP.Business.Services
         {
             if (id == default(int)) return null; // Verificar si el ID es cero, si es así, devolver null
 
-            var mediosdepago = _context.MediosDePagos.FirstAsync(f => f.Id == id); // Buscar la factura por su ID
+            var mediosDePago = _context.MediosDePagos.FirstAsync(f => f.Id == id); // Buscar la factura por su ID
 
-            if (mediosdepago == null) return null; // Si la factura no se encontró, devolver null
+            if (mediosDePago == null) return null; // Si la factura no se encontró, devolver null
 
-            return await mediosdepago; // Devolver la factura encontrada
+            return await mediosDePago; // Devolver la factura encontrada
         }
 
         // Método para leer todas las facturas de la base de datos
