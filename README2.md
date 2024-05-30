@@ -15,13 +15,13 @@
 --- Clase "Estado"
 ---- Propiedades: Id, Nombre, Descripción
 --- Clase "Roles"
----- Propiedades: Id, Nombre, Descripción
+---- Propiedades: Id, Nombre, Descripción,ACTIVO
 --- Clase "CLientes"
----- Propiedades: Id, Nombre, Descripción
+---- Propiedades: Id, Personaid, Rolid
 --- Clase "Facturas"
----- Propiedades: Id, pagoid, Descripción
+---- Propiedades: id,saldo, clienteid, servicioAdquirido,medio de pago
 --- Clase "Pago"
----- Propiedades: Id, servicio, Descripción
+---- Propiedades: Id, MontoDePago, FacturaId
 ## -- Creación de Contexto
 --- Contexto de la base de datos para operaciones como recuperar, insertar, actualizar o eliminar objetos
 --- Administración de transacciones, seguimiento de cambios, control de concurrencia y gestión de la caché
