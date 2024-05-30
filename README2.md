@@ -14,6 +14,14 @@
 ## -- Ejemplo:
 --- Clase "Estado"
 ---- Propiedades: Id, Nombre, Descripción
+--- Clase "Roles"
+---- Propiedades: Id, Nombre, Descripción
+--- Clase "CLientes"
+---- Propiedades: Id, Nombre, Descripción
+--- Clase "Facturas"
+---- Propiedades: Id, pagoid, Descripción
+--- Clase "Pago"
+---- Propiedades: Id, servicio, Descripción
 ## -- Creación de Contexto
 --- Contexto de la base de datos para operaciones como recuperar, insertar, actualizar o eliminar objetos
 --- Administración de transacciones, seguimiento de cambios, control de concurrencia y gestión de la caché
